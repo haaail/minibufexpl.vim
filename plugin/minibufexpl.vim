@@ -70,7 +70,7 @@ if !exists(':MBEToggle')
   command! -bang MBEToggle    call <SID>ToggleExplorer(0,'<bang>'=='!')
 endif
 if !exists(':MBEToggleAll')
-  command! -bang MBEToggleAll call <SID>ToggleExplorer(1,'<bang>'=='!')
+  command! -bang MBEToggleAll call <SID>ToggleExplorer(1,'<bang>'=='!') | call <SID>FocusExplorer()
 endif
 if !exists(':MBEToggleMRU')
   command! -bang MBEToggleMRU       call <SID>ToggleMRU()
@@ -663,10 +663,10 @@ function! <SID>StartExplorer(curBufNum)
   nnoremap <buffer> <CR>    :call <SID>MBESelectBuffer(0)<CR>:<BS>
   " If you press s in the -MiniBufExplorer- then try
   " to open the selected buffer in a split in the previous window.
-  nnoremap <buffer> s       :call <SID>MBESelectBuffer(1)<CR>:<BS>
+  nnoremap <buffer> i       :call <SID>MBESelectBuffer(1)<CR>:<BS>
   " If you press j in the -MiniBufExplorer- then try
   " to open the selected buffer in a vertical split in the previous window.
-  nnoremap <buffer> v       :call <SID>MBESelectBuffer(2)<CR>:<BS>
+  nnoremap <buffer> s       :call <SID>MBESelectBuffer(2)<CR>:<BS>
   " If you press d in the -MiniBufExplorer- then try to
   " delete the selected buffer.
   nnoremap <buffer> d       :call <SID>MBEDeleteBuffer()<CR>:<BS>
