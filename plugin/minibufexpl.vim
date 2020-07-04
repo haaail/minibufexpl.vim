@@ -67,10 +67,10 @@ if !exists(':MBECloseAll')
   command! -bang MBECloseAll  tabdo let t:skipEligibleBuffersCheck = 0 | call <SID>StopExplorer('<bang>' == '!') | let s:TabsMBEState = 0
 endif
 if !exists(':MBEToggle')
-  command! -bang MBEToggle    call <SID>ToggleExplorer(0,'<bang>'=='!')
+  command! -bang MBEToggle    call <SID>ToggleExplorer(0,'<bang>'=='!') | call <SID>FocusExplorer()
 endif
 if !exists(':MBEToggleAll')
-  command! -bang MBEToggleAll call <SID>ToggleExplorer(1,'<bang>'=='!') | call <SID>FocusExplorer()
+  command! -bang MBEToggleAll call <SID>ToggleExplorer(1,'<bang>'=='!')
 endif
 if !exists(':MBEToggleMRU')
   command! -bang MBEToggleMRU       call <SID>ToggleMRU()
